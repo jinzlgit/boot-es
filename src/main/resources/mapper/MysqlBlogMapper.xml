@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.es.boot.mapper.mysql.MysqlBlogMapper">
+
+
+    <select id="queryBlogs" resultType="com.es.boot.entity.mysql.MysqlBlog">
+        select b.*
+        from t_blog b
+        where b.title like concat("%", #{keywords}, "%")
+              or b.content like concat("%", #{keywords}, "%")
+    </select>
+</mapper>
